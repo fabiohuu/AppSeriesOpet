@@ -94,4 +94,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/button2"
         android:layout_alignEnd="@+id/button2" />
+    <TextureView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
