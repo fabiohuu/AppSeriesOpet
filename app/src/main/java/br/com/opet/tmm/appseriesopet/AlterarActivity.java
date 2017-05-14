@@ -11,8 +11,6 @@ import android.widget.EditText;
 public class AlterarActivity extends Activity {
 
     EditText livro;
-    EditText autor;
-    EditText editora;
     Button alterar;
     Button deletar;
     Cursor cursor;
@@ -29,21 +27,16 @@ public class AlterarActivity extends Activity {
         crud = new BancoController(getBaseContext());
 
         livro = (EditText)findViewById(R.id.editText4);
-        autor = (EditText)findViewById(R.id.editText5);
-        editora = (EditText)findViewById(R.id.editText6);
 
         alterar = (Button)findViewById(R.id.button2);
 
         cursor = crud.carregaDadoById(Integer.parseInt(codigo));
         livro.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.TITULO)));
-        autor.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.AUTOR)));
-        editora.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.EDITORA)));
 
         alterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crud.alteraRegistro(Integer.parseInt(codigo), livro.getText().toString(),autor.getText().toString(),
-                        editora.getText().toString());
+                crud.alteraRegistro(Integer.parseInt(codigo), livro.getText().toString());
                 Intent intent = new Intent(AlterarActivity.this,ConsultaActivity.class);
                 startActivity(intent);
                 finish();

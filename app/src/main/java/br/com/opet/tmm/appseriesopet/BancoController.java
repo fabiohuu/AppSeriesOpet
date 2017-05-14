@@ -17,15 +17,13 @@ public class BancoController {
         banco = new CriaBanco(context);
     }
 
-    public String insereDado(String titulo, String autor, String editora){
+    public String insereDado(String titulo){
         ContentValues valores;
         long resultado;
 
         db = banco.getWritableDatabase();
         valores = new ContentValues();
         valores.put(CriaBanco.TITULO, titulo);
-        valores.put(CriaBanco.AUTOR, autor);
-        valores.put(CriaBanco.EDITORA, editora);
 
         resultado = db.insert(CriaBanco.TABELA, null, valores);
         db.close();
@@ -52,7 +50,7 @@ public class BancoController {
 
     public Cursor carregaDadoById(int id){
         Cursor cursor;
-        String[] campos =  {banco.ID,banco.TITULO,banco.AUTOR,banco.EDITORA};
+        String[] campos =  {banco.ID,banco.TITULO};
         String where = CriaBanco.ID + "=" + id;
         db = banco.getReadableDatabase();
         cursor = db.query(CriaBanco.TABELA,campos,where, null, null, null, null, null);
@@ -64,7 +62,7 @@ public class BancoController {
         return cursor;
     }
 
-    public void alteraRegistro(int id, String titulo, String autor, String editora){
+    public void alteraRegistro(int id, String titulo){
         ContentValues valores;
         String where;
 
@@ -74,8 +72,6 @@ public class BancoController {
 
         valores = new ContentValues();
         valores.put(CriaBanco.TITULO, titulo);
-        valores.put(CriaBanco.AUTOR, autor);
-        valores.put(CriaBanco.EDITORA, editora);
 
         db.update(CriaBanco.TABELA,valores,where,null);
         db.close();

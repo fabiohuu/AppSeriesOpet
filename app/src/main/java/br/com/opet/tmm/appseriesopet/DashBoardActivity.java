@@ -18,7 +18,7 @@ public class DashBoardActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void listar(View v){
+    public void listagem(View v){
         Intent intent = new Intent(DashBoardActivity.this,ConsultaActivity.class);
         startActivity(intent);
     }

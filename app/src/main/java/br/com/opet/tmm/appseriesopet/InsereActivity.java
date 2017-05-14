@@ -21,14 +21,10 @@ public class InsereActivity extends Activity {
             public void onClick(View v) {
                 BancoController crud = new BancoController(getBaseContext());
                 EditText titulo = (EditText)findViewById(R.id.editText);
-                EditText autor = (EditText)findViewById((R.id.editText2));
-                EditText editora = (EditText)findViewById(R.id.editText3);
                 String tituloString = titulo.getText().toString();
-                String autorString = autor.getText().toString();
-                String editoraString = editora.getText().toString();
                 String resultado;
 
-                resultado = crud.insereDado(tituloString,autorString,editoraString);
+                resultado = crud.insereDado(tituloString);
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
             }

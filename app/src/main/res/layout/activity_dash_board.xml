@@ -19,8 +19,8 @@
 
     <Button
         android:layout_below="@+id/inserirButton"
-        android:onClick="listar"
+        android:onClick="listagem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Listar" />
+        android:text="Listagem" />
 </RelativeLayout>
